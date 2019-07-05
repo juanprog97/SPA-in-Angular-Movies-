@@ -1,7 +1,18 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MoviesComponent } from './components/movies/movies.component';
+import { ActorsComponent } from './components/actors/actors.component';
+import { DetailActorComponent } from './components/detail-actor/detail-actor.component';
+import { DetailMovieComponent } from './components/detail-movie/detail-movie.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+    {path: 'Actors', component: ActorsComponent},
+    {path: 'Movies', component: MoviesComponent},
+    {path: 'ActorDetails', component: DetailActorComponent},
+    {path: 'MovieDetails', component: DetailMovieComponent},
+    {path: '**', component: MainPageComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
