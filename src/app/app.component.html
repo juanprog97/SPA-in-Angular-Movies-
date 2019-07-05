@@ -1,4 +1,116 @@
-
-
-
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MoviesInformation</title>
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+                <a class="navbar-brand " href="#"><img src="./assets/images/logo.png" alt="LogoMovie" width="130px" height="40px" ></a>
+                <button type="button" class="navbar-toggler custom-toggler" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="options">
+                <span class="navbar-toggler-icon"></span>    
+                </button>
+                
+              
+                <div class="collapse navbar-collapse" id="options" [ngbCollapse]="isCollapsed" >
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                      <a class="nav-link" routerLink="/**" routerLinkActive="active"><h6>Home</h6><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/Movies" routerLinkActive="active"><h6>Movies</h6></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/TVshows" routerLinkActive="active"><h6>TV Show's</h6></a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" routerLink="/Actors" routerLinkActive="active"><h6>Actors</h6></a>
+                    </li>
+                  </ul>
+                  
+                </div>
+              </nav>
+</body>
 <router-outlet></router-outlet>
+
+<footer class="page-footer font-small  fixed-bottom">
+
+  <div style="background-color: #FFC108;">
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row py-4 d-flex align-items-center">
+
+        <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f white-text mr-4"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter white-text mr-4"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g white-text mr-4"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in white-text mr-4"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram white-text"> </i>
+          </a>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+  </div>
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+
+    <!-- Grid row -->
+    <div class="row mt-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">Movie Page</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>It is a simple web application, which looks up information from a movie api. </p>
+
+      </div>
+
+      <div class="col-md-8 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <i class="fas fa-home mr-3"></i> Cl. 18 ##118-250, Cali</p>
+        <p>
+          <i class="fas fa-envelope mr-4"></i> juancard190gmail.com</p>
+        <p>
+          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+        <p>
+          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+
+      </div>
+    </div>
+
+
+  </div>
+</footer>
+
+</html>
+
+
+

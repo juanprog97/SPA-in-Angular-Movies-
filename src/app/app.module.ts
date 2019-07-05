@@ -9,6 +9,7 @@ import { DetailActorComponent } from './components/detail-actor/detail-actor.com
 import { DetailMovieComponent } from './components/detail-movie/detail-movie.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TVshowComponent } from './components/tvshow/tvshow.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ActorsComponent,
     DetailActorComponent,
     DetailMovieComponent,
-    MainPageComponent
+    MainPageComponent,
+    TVshowComponent
   ],
   imports: [
     BrowserModule,
