@@ -10,6 +10,7 @@ import { DetailMovieComponent } from './components/detail-movie/detail-movie.com
 import { MainPageComponent } from './components/main-page/main-page.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TVshowComponent } from './components/tvshow/tvshow.component';
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TVshowComponent } from './components/tvshow/tvshow.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    OwlModule,
     NgbModule,
     AngularFontAwesomeModule
     
