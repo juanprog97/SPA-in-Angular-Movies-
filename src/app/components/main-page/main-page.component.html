@@ -1,38 +1,187 @@
-<div class="container-fluid">
-    <div class="row mce-fixed-width justify-content-center ">
-        <div class="col-xl-8">
-            <div class="card">
-                <div class="card-body ">
-                        <h2>Popular</h2>
-                        
-                    <ngb-carousel *ngIf="images" >
-                            <ng-template ngbSlide>
-                                <img [src]="images[0]" alt="Random first slide">
-                                <div class="carousel-caption">
-                                <h3>Movie Of The Moment</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </ng-template>
-                            <ng-template ngbSlide>
-                                <img [src]="images[1]" alt="Random second slide">
-                                <div class="carousel-caption">
-                                <h3>Second slide label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                            </ng-template>
-                            <ng-template ngbSlide>
-                                <img [src]="images[2]" alt="Random third slide">
-                                <div class="carousel-caption">
-                                <h3>Third slide label</h3>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                </div>
-                            </ng-template>
+
+<div class="row-fluide" >
+    <div class="row mce-fixed-width" id="popularBox" >
+        <div class="col-xl-12">
+            <h1 class="titles" >Most Populars</h1>
+                   <div class="contain">
+                        <ngb-carousel *ngIf="images"  >
+                                <ng-template ngbSlide>
+                                <a href="#">
+                            
+                                    <img [src]="images[0]" alt="Random first slide">
+                                    <div class="carousel-caption">
+                                    <h3>Movie Of The Moment</h3>
+                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                    </div>
+                              
+                                    
+                                </a>
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                <a href="#">
+                                        <img [src]="images[1]" alt="Random second slide">
+                                        <div class="carousel-caption">
+                                        <h3>TV'Show Of The Moment</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                </a>
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                <a href="#">
+                                    <img [src]="images[2]" alt="Random third slide">
+                                    <div class="carousel-caption">
+                                    <h3>Actor Of The Moment</h3>
+                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                    </div>
+                                </a>
+                                </ng-template>
                         </ngb-carousel>
+                   </div>
+                    
+        </div> 
+    </div>
+    <div class="row-block mce-fixed-width" #movie >
+        <div class="col-sm-12" >
+            <div class="card"   >
+                <div class="card-header" >
+                    <h4 >Featured Movies.</h4>
+                </div>
+                <div class="card-body ">
+                    <div class="row justify-content-center">
+                            <div *ngFor="let item of movies | paginate: { itemsPerPage:12, currentPage: p}">
+                                <div class="card card-movie   " style="width: 300px ">
+                                    <div class="card-body" >
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <h5 class="card-title">{{item.title}}({{item.release_date.slice(0,4)}})</h5>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <img [src]="this.imgURL+item.backdrop_path"  class="card-img-top" [alt]="item.title">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 align-items-center"></div>
+                                            <ngb-rating [(rate)]="item.vote_average"></ngb-rating>
+                                        </div>
+                                        <div class="row">
+                                                <pre>Rate: <b>{{item.vote_average}}</b></pre>
+                                        </div>
+                                            
+                                            <a href="#movie"  class="btn btn-primary">Go somewhere</a>  
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row justify-content-center" >
+                        <div class="col-sm-5" >
+                                   
+                        <pagination-controls (pageChange)="p =$event" ></pagination-controls>
+                        </div>
+                        <div class="col-sm-1">
+                            <a (click)="scroll(movie)"  class="btn btn-primary"><i class="fas fa-chevron-up"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
         </div>
-        
-</div>
+    </div>
+
+    <div class="row-block mce-fixed-width" #tv>
+        <div class="col-sm-12">
+            <div class="card" >
+                <div class="card-header">
+                    <h4>Featured TVShows.</h4>
+                </div>
+                <div class="card-body ">
+                        <div class="row justify-content-center">
+                            <div *ngFor="let item of tvs | paginate: { itemsPerPage:12, currentPage: p}">
+                                <div class="card card-movie   " style="width: 300px ">
+                                    <div class="card-body" >
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <h5 class="card-title">{{item.original_name}}({{item.first_air_date.slice(0,4)}})</h5>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <img [src]="this.imgURL+item.backdrop_path"  class="card-img-top" [alt]="item.title">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 align-items-center"></div>
+                                            <ngb-rating [(rate)]="item.vote_average"></ngb-rating>
+                                        </div>
+                                        <div class="row">
+                                                <pre>Rate: <b>{{item.vote_average}}</b></pre>
+                                        </div>
+                                            
+                                            <a href="#movie"  class="btn btn-primary">Go somewhere</a>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center" >
+                                <div class="col-sm-5" >
+                                           
+                                <pagination-controls (pageChange)="p =$event" ></pagination-controls>
+                                </div>
+                                <div class="col-sm-1">
+                                    <a (click)="scroll(tv)" class="btn btn-primary"><i class="fas fa-chevron-up"></i></a>
+                                </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+    <div class="row-block mce-fixed-width" #actor >
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                        <h4>Featured Actors.</h4>
+                </div>
+                <div class="card-body ">
+                        <div class="row justify-content-center">
+                            <div *ngFor="let item of actors | paginate: { itemsPerPage:12, currentPage: p}">
+                                <div class="card card-movie   " style="width: 300px ">
+                                    <div class="card-body" >
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <h5 class="card-title">{{item.name}}({{item.first_air_date.slice(0,4)}})</h5>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <img [src]="this.imgURL+item.backdrop_path"  class="card-img-top" [alt]="item.title">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 align-items-center"></div>
+                                            <ngb-rating [(rate)]="item.vote_average"></ngb-rating>
+                                        </div>
+                                        <div class="row">
+                                                <pre>Rate: <b>{{item.vote_average}}</b></pre>
+                                        </div>
+                                            
+                                            <a href="#movie"  class="btn btn-primary">Go somewhere</a>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center" >
+                                <div class="col-sm-5" >
+                                           
+                                <pagination-controls (pageChange)="p =$event" ></pagination-controls>
+                                </div>
+                                <div class="col-sm-1">
+                                    <a (click)="scroll(tv)" class="btn btn-primary"><i class="fas fa-chevron-up"></i></a>
+                                </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>      
+
 
 

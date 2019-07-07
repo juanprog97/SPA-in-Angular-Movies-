@@ -4,36 +4,38 @@
 	<title>MoviesInformation</title>
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-                <a class="navbar-brand " class="nav-link" routerLink="/**"><img src="./assets/images/logo.png" alt="LogoMovie" width="130px" height="40px" ></a>
-                <button type="button" class="navbar-toggler custom-toggler" (click)="isCollapsed = !isCollapsed"
-                [attr.aria-expanded]="!isCollapsed" aria-controls="options">
-                <span class="navbar-toggler-icon"></span>    
-                </button>
-                
-              
-                <div class="collapse navbar-collapse" id="options" [ngbCollapse]="isCollapsed" >
-                  <ul class="navbar-nav nav-pills mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link"  routerLink="/**" routerLinkActive="active" ><h6>Home</h6><span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" routerLink="/Movies" routerLinkActive="active"><h6>Movies</h6></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" routerLink="/TVshows" routerLinkActive="active"><h6>TV Show's</h6></a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" routerLink="/Actors" routerLinkActive="active"><h6>Actors</h6></a>
-                    </li>
-                  </ul>
-                  
-                </div>
-              </nav>
-              <router-outlet></router-outlet>
+  <div>
+    
+  </div>
+    <div class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand " class="nav-link" routerLink="/**"><img src="./assets/images/logo.png" alt="LogoMovie" width="130px" height="40px" ></a>
+        <button type="button" class="navbar-toggler custom-toggler" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="options">
+        <span class="navbar-toggler-icon"></span>    
+        </button>
+        
+      
+        <div class="collapse navbar-collapse" id="options" [ngbCollapse]="isCollapsed" >
+          <ul class="navbar-nav nav-pills mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/**" routerLinkActive="active" ><h6>Init</h6><span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/Movie" routerLinkActive="active" href="#movie"><h6>Movies</h6></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/TVshows" routerLinkActive="active"><h6>TV Show's</h6></a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" routerLink="/Actors" routerLinkActive="active"><h6>Actors</h6></a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  <router-outlet>
+  </router-outlet>           
 </body>
-
-
+  
 <footer class="page-footer font-small ">
 
   <div style="background-color: #FFC108;">

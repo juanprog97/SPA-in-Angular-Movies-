@@ -1,4 +1,43 @@
 
-.container-fluid{
-    padding: 30px 30px
+.row-fluide{
+    padding: 30px 30px;
+    padding-top: 100px;
 }
+
+img{
+    width: fill;
+    height: fill;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    
+}
+
+ng-template{
+    height: auto;
+}
+
+.titles{
+    text-align: left;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(128,128,128,0.7) ;
+    margin-bottom: 20px;
+}
+
+.row-block{
+    padding: 40px;
+    margin-top: 5px;
+    border-top: 1.5px solid rgb(128,128,128,0.7);
+
+}
+
+.card-movie{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+}
+    
+
+
+

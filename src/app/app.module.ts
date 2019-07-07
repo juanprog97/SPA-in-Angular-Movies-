@@ -11,6 +11,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TVshowComponent } from './components/tvshow/tvshow.component';
 import { OwlModule } from 'ngx-owl-carousel';
+import { HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { OwlModule } from 'ngx-owl-carousel';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     OwlModule,
+    NgxPaginationModule,
     NgbModule,
     AngularFontAwesomeModule
     
