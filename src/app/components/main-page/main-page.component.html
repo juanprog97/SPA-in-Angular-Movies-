@@ -8,10 +8,10 @@
                                 <ng-template ngbSlide>
                                 <a href="#">
                             
-                                    <img [src]="images[0]" alt="Random first slide">
+                                    <img [src]="this.imgURL+this.movies[0].backdrop_path" [alt]="this.movies[0].name" class="img-carousel">
                                     <div class="carousel-caption">
-                                    <h3>Movie Of The Moment</h3>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                    <h3 style=" text-shadow: 2px 2px grey;">Movie Of The Moment</h3>
+                                    <p style=" text-shadow: 2px 2px grey;" >{{movies[0].original_title}}</p>
                                     </div>
                               
                                     
@@ -19,19 +19,19 @@
                                 </ng-template>
                                 <ng-template ngbSlide>
                                 <a href="#">
-                                        <img [src]="images[1]" alt="Random second slide">
+                                        <img [src]="this.imgURL+this.tvs[0].backdrop_path" [alt]="this.tvs[0].name" class="img-carousel">
                                         <div class="carousel-caption">
-                                        <h3>TV'Show Of The Moment</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <h3  style=" text-shadow: 2px 2px grey;">TV'Show Of The Moment</h3>
+                                        <p >{{tvs[0].original_name}} </p>
                                         </div>
                                 </a>
                                 </ng-template>
                                 <ng-template ngbSlide>
                                 <a href="#">
-                                    <img [src]="images[2]" alt="Random third slide">
+                                    <img [src]="this.imgURL+this.actors[0].profile_path" [alt]="this.actors[0].name" id="actoimg" class="img-carousel">
                                     <div class="carousel-caption">
-                                    <h3>Actor Of The Moment</h3>
-                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                    <h3  style=" text-shadow: 2px 2px grey;" >Actor Of The Moment</h3>
+                                    <p style=" text-shadow: 2px 2px grey;">{{actors[0].name}}</p>
                                     </div>
                                 </a>
                                 </ng-template>
@@ -42,42 +42,54 @@
     </div>
     <div class="row-block mce-fixed-width" #movie >
         <div class="col-sm-12" >
-            <div class="card"   >
+            <div class="card-fluid"   >
                 <div class="card-header" >
-                    <h4 >Featured Movies.</h4>
+                    <h4 >Popular Movies.</h4>
                 </div>
-                <div class="card-body ">
+                <div class="card-body  ">
                     <div class="row justify-content-center">
-                            <div *ngFor="let item of movies | paginate: { itemsPerPage:12, currentPage: p}">
-                                <div class="card card-movie   " style="width: 300px ">
-                                    <div class="card-body" >
+                            <div *ngFor="let item of movies | paginate : { itemsPerPage:12, currentPage: p1,id: 'mov'}">
+                                <div class="card card-movie " style="width: 300px; ">
+                                    
+                                    <div class="card-body go" >
                                         <div class="row">
                                             <div class="col-xl-12">
                                                 <h5 class="card-title">{{item.title}}({{item.release_date.slice(0,4)}})</h5>
+                                                <hr>
                                             </div>
-                                            
                                         </div>
+                                        
                                         <div class="row">
-                                            <img [src]="this.imgURL+item.backdrop_path"  class="card-img-top" [alt]="item.title">
+                                            <img [src]="this.imgURL+item.backdrop_path"  style=" height: 200px" class="card-img-top" [alt]="item.title">
+                                        
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-12 align-items-center"></div>
+                                        <div class="row justify-content-center">
                                             <ngb-rating [(rate)]="item.vote_average"></ngb-rating>
                                         </div>
-                                        <div class="row">
+                                        <div class="row  justify-content-center">
                                                 <pre>Rate: <b>{{item.vote_average}}</b></pre>
                                         </div>
-                                            
-                                            <a href="#movie"  class="btn btn-primary">Go somewhere</a>  
+                                        <div class ="row">
+                                                <div class="cut-text">
+                                                    {{item.overview}} 
+                                                </div>
+                                        </div>
+                                       
                                     </div>
+                                    <div class="showInfo">
+                                        <div class="text">
+                                            <i class="fas fa-info"></i> info
+                                        </div>
+                                    </div>      
+                                    
                                 </div>
+                                
                             </div>
                     </div>
                     <div class="row justify-content-center" >
                         <div class="col-sm-5" >
-                                   
-                        <pagination-controls (pageChange)="p =$event" ></pagination-controls>
+                        <pagination-controls (pageChange)="p1 = $event" id="mov"></pagination-controls>
                         </div>
                         <div class="col-sm-1">
                             <a (click)="scroll(movie)"  class="btn btn-primary"><i class="fas fa-chevron-up"></i></a>
@@ -85,47 +97,56 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 
     <div class="row-block mce-fixed-width" #tv>
         <div class="col-sm-12">
-            <div class="card" >
+            <div class="card-fluid" >
                 <div class="card-header">
-                    <h4>Featured TVShows.</h4>
+                    <h4>Populars TVShows.</h4>
                 </div>
                 <div class="card-body ">
                         <div class="row justify-content-center">
-                            <div *ngFor="let item of tvs | paginate: { itemsPerPage:12, currentPage: p}">
+                            <div *ngFor="let item of tvs | paginate: { itemsPerPage:12, currentPage: p2, id: 'tvts'}">
                                 <div class="card card-movie   " style="width: 300px ">
-                                    <div class="card-body" >
+                                    <div class="card-body go" >
                                         <div class="row">
                                             <div class="col-xl-12">
                                                 <h5 class="card-title">{{item.original_name}}({{item.first_air_date.slice(0,4)}})</h5>
+                                                <hr>
                                             </div>
-                                            
                                         </div>
+                                        
                                         <div class="row">
-                                            <img [src]="this.imgURL+item.backdrop_path"  class="card-img-top" [alt]="item.title">
+                                            <img [src]="this.imgURL+item.backdrop_path" style=" height: 200px"  class="card-img-top" [alt]="item.title">
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-12 align-items-center"></div>
-                                            <ngb-rating [(rate)]="item.vote_average"></ngb-rating>
+                                        <div class="row justify-content-center">
+                                                <ngb-rating [(rate)]="item.vote_average"></ngb-rating>
                                         </div>
-                                        <div class="row">
+                                        <div class="row justify-content-center">
                                                 <pre>Rate: <b>{{item.vote_average}}</b></pre>
                                         </div>
-                                            
-                                            <a href="#movie"  class="btn btn-primary">Go somewhere</a>  
+                                        <div class ="row">
+                                            <div class="cut-text">
+                                                {{item.overview}} 
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="showInfo">
+                                        <div class="text">
+                                            <i class="fas fa-info"></i> info
+                                        </div>
+                                    </div>     
                                 </div>
                             </div>
                         </div>
                         <div class="row justify-content-center" >
                                 <div class="col-sm-5" >
                                            
-                                <pagination-controls (pageChange)="p =$event" ></pagination-controls>
+                                    <pagination-controls (pageChange)="p2 = $event" id="tvts" ></pagination-controls>
                                 </div>
                                 <div class="col-sm-1">
                                     <a (click)="scroll(tv)" class="btn btn-primary"><i class="fas fa-chevron-up"></i></a>
@@ -136,45 +157,48 @@
     </div>
     <div class="row-block mce-fixed-width" #actor >
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card-fluid">
                 <div class="card-header">
-                        <h4>Featured Actors.</h4>
+                        <h4>Populars Actors.</h4> 
                 </div>
+               
                 <div class="card-body ">
                         <div class="row justify-content-center">
-                            <div *ngFor="let item of actors | paginate: { itemsPerPage:12, currentPage: p}">
-                                <div class="card card-movie   " style="width: 300px ">
-                                    <div class="card-body" >
-                                        <div class="row">
-                                            <div class="col-xl-12">
-                                                <h5 class="card-title">{{item.name}}({{item.first_air_date.slice(0,4)}})</h5>
-                                            </div>
-                                            
+                            <div *ngFor="let item of actors | paginate: { itemsPerPage:12, currentPage: p3, id: 'act'}">
+                                <div class="card card-movie   " >
+                                    <div class="card-body go"  style="width: 200 ; height: 200">
+                                        <div class="row-fluid justify-content-center">
+                                                <h5 class="card-title">{{item.name}}</h5> 
+                                                <hr>
                                         </div>
-                                        <div class="row">
-                                            <img [src]="this.imgURL+item.backdrop_path"  class="card-img-top" [alt]="item.title">
+                                        <div class="row justify-content-center">
+                                            <img [src]="this.imgURL+item.profile_path" style="width: 200px; height: 240px; border-radius: 5px"   class="card-img-top" [alt]="item.title">
                                         </div>
 
                                         <div class="row">
                                             <div class="col-12 align-items-center"></div>
-                                            <ngb-rating [(rate)]="item.vote_average"></ngb-rating>
+
                                         </div>
-                                        <div class="row">
-                                                <pre>Rate: <b>{{item.vote_average}}</b></pre>
+                                        <div class="row"> 
+                                            <div class="cut-text-actor">
+                                                {{item.known_for.map(myFunction)}}
+                                            </div>
                                         </div>
-                                            
-                                            <a href="#movie"  class="btn btn-primary">Go somewhere</a>  
                                     </div>
+                                    <div class="showInfo">
+                                        <div class="text">
+                                            <i class="fas fa-info"></i> info
+                                        </div>
+                                    </div>     
                                 </div>
                             </div>
                         </div>
                         <div class="row justify-content-center" >
                                 <div class="col-sm-5" >
-                                           
-                                <pagination-controls (pageChange)="p =$event" ></pagination-controls>
+                                <pagination-controls (pageChange)="p3 =$event" id="act" ></pagination-controls>
                                 </div>
                                 <div class="col-sm-1">
-                                    <a (click)="scroll(tv)" class="btn btn-primary"><i class="fas fa-chevron-up"></i></a>
+                                    <a (click)="scroll(actor)" class="btn btn-primary"><i class="fas fa-chevron-up"></i></a>
                                 </div>
                         </div>
                 </div>

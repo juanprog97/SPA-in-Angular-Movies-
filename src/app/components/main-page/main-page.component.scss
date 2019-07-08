@@ -4,15 +4,33 @@
     padding-top: 100px;
 }
 
-img{
+.img-carousel{
     width: fill;
-    height: fill;
+    height: 700px;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
     
+    
+    
+}
+.carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
 }
 
+.img-carousel#actoimg{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+    
+}
 ng-template{
     height: auto;
 }
@@ -35,9 +53,85 @@ ng-template{
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-
-}
+    max-height: 800px;
+    
     
 
+}
 
 
+.go{
+    opacity: 1;
+    transition: .5s ease;
+}
+
+
+.card-movie:hover .go{
+    opacity:0.3
+}
+
+.card-movie:hover .showInfo{
+    opacity: 1;
+} 
+
+.showInfo{
+    transition: .5s ease;
+    opacity: 0 ;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.text {
+    background-color: #ffbb33;
+    color: white;
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 16px 32px;
+  }
+
+.text:hover{
+    background-color: #E89123
+}    
+.cut-text{ 
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    width: full;
+    font-weight: 500;
+    font-style: italic;
+    text-align: justify;
+    max-height: 100px; 
+    
+  }
+
+  
+.cut-text-actor{ 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    max-width: 200px;
+    font-weight: 600;
+    max-height: 100px; 
+    
+}
+
+.carousel-item.active{
+    justify-content: center;
+}
+
+
+  
+.carousel-control-prev-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%393d42' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+    width:60px;
+    height:60px;
+
+   }
+.carousel-control-next-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%393d42' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+    width:60px;
+    height:60px;    
+}

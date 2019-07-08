@@ -7,7 +7,7 @@ import {HttpClient} from '@angular/common/http'
 export class TMDBApiServiceService {
   private baseURL = 'https://api.themoviedb.org/3'
   private key = '7f62276b73439fa13a5e91f31830334e'
-  private language = 'es-US';
+  private language = 'en-US';
   constructor(private _http: HttpClient) { }
   getFromTMBD(search: string,page:number): Promise<any>{
     let url = `${this.baseURL}/${search}?api_key=${this.key}&language=${this.language}&page=${page}`
