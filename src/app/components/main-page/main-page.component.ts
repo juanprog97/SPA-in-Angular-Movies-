@@ -2,10 +2,11 @@ import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { TMDBApiServiceService } from '../../services/tmdbapi-service.service';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  providers: [NgbRatingConfig],
+  providers: [NgbRatingConfig ],
   styleUrls: ['./main-page.component.scss'],
   encapsulation: ViewEncapsulation.None
 })

@@ -63,7 +63,8 @@
                                         </div>
 
                                         <div class="row justify-content-center">
-                                            <ngb-rating [(rate)]="item.vote_average"></ngb-rating>
+                                            
+                                            <bar-rating  style="width: 250px; " [readOnly]="'true'" [(rate)]="item.vote_average"[max]="10" [theme]="'stars'"></bar-rating> 
                                         </div>
                                         <div class="row  justify-content-center">
                                                 <pre>Rate: <b>{{item.vote_average}}</b></pre>
@@ -84,6 +85,7 @@
                                 </div>
                                 
                             </div>
+                            
                     </div>
                     <div class="row justify-content-center" >
                         <div class="col-sm-5" >
@@ -122,7 +124,7 @@
                                         </div>
 
                                         <div class="row justify-content-center">
-                                                <ngb-rating [(rate)]="item.vote_average"></ngb-rating>
+                                                <bar-rating  style="width: 250px; " [readOnly]="'true'" [(rate)]="item.vote_average"[max]="10" [theme]="'stars'"></bar-rating> 
                                         </div>
                                         <div class="row justify-content-center">
                                                 <pre>Rate: <b>{{item.vote_average}}</b></pre>
