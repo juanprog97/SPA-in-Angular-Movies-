@@ -6,12 +6,14 @@ import { DetailActorComponent } from './components/detail-actor/detail-actor.com
 import { DetailMovieComponent } from './components/detail-movie/detail-movie.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { TVshowComponent } from './components/tvshow/tvshow.component';
+import { DetailTVComponent } from './components/detail-tv/detail-tv.component';
 
 const routes: Routes = [
     {path: 'Actors', component: ActorsComponent},
     {path: 'Movies', component: MoviesComponent},
     {path: 'ActorDetails', component: DetailActorComponent},
     {path: 'MovieDetails', component: DetailMovieComponent},
+    {path: 'Detailtv', component:DetailTVComponent },
     {path: 'TVshows', component: TVshowComponent},
     {path: '**', component: MainPageComponent}
 ];

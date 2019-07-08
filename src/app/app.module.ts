@@ -13,6 +13,7 @@ import { TVshowComponent } from './components/tvshow/tvshow.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { DetailTVComponent } from './components/detail-tv/detail-tv.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DetailActorComponent,
     DetailMovieComponent,
     MainPageComponent,
-    TVshowComponent
+    TVshowComponent,
+    DetailTVComponent
   ],
   imports: [
     BrowserModule,
