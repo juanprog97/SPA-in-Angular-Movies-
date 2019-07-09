@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { DetailTVComponent } from './components/detail-tv/detail-tv.component';
 import { BarRatingModule } from 'ngx-bar-rating'
+import { MzButtonModule } from 'ngx-materialize'
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { BarRatingModule } from 'ngx-bar-rating'
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    MzButtonModule,
     HttpClientModule,
     OwlModule,
     NgxPaginationModule,

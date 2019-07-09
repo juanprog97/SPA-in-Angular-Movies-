@@ -56,6 +56,21 @@ export class MainPageComponent implements OnInit {
       return elem.title
     }
   }
+
+  recortar(texto){ 
+   
+    if(texto.length >=145){
+
+      let textRecortado= texto.slice(0,147)
+      
+      return textRecortado+"..."
+
+    }
+    else{
+      return texto
+    }
+
+  }
   
 
 }
