@@ -11,9 +11,9 @@ import { DetailTVComponent } from './components/detail-tv/detail-tv.component';
 const routes: Routes = [
     {path: 'Actors', component: ActorsComponent},
     {path: 'Movies', component: MoviesComponent},
-    {path: 'ActorDetails', component: DetailActorComponent},
-    {path: 'MovieDetails', component: DetailMovieComponent},
-    {path: 'Detailtv', component:DetailTVComponent },
+    {path: 'ActorDetails/:id', component: DetailActorComponent},
+    {path: 'MovieDetails/:id', component: DetailMovieComponent},
+    {path: 'Detailtv/:id', component:DetailTVComponent },
     {path: 'TVshows', component: TVshowComponent},
     {path: '**', component: MainPageComponent}
 ];

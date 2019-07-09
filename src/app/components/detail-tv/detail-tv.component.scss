@@ -1,0 +1,43 @@
+.row-fluide-movie{
+    padding: 30px 30px;
+    padding-top: 100px;
+    
+}
+
+.card-body.detail-movie{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 100px; 
+}
+
+#overview{
+    margin-top: 70px; 
+}
+.br-units{
+    justify-content: center
+}
+
+@media screen and (width: 768px) {
+    #overview{
+        margin-top: 90px;
+    }
+    #titulo{
+        padding-left:20px;    
+
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+
+    .card-body.detail-movie{
+        padding-left: 20px;
+        padding-right: 20px
+    }
+    #overview{
+        padding-left:40px;
+        padding-right: 40px;
+    }
+   
+
+}

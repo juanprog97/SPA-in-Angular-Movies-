@@ -76,7 +76,7 @@
                                         </div>
                                        
                                     </div>
-                                    <div class="showInfo" routerLink="/MovieDetails" >
+                                    <div class="showInfo" [routerLink]="['/MovieDetails',item.id]" >
                                         <div class="text">
                                             <i class="fas fa-info"></i> info
                                         </div>
@@ -135,7 +135,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="showInfo"  routerLink="/Detailtv" >
+                                    <div class="showInfo"  [routerLink]="['/Detailtv',item.id]" >
                                         <div class="text">
                                             <i class="fas fa-info"></i> info
                                         </div>
@@ -186,7 +186,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="showInfo" routerLink="/ActorDetails">
+                                    <div class="showInfo"   [routerLink]="['/ActorDetails',item.id]">
                                         <div class="text">
                                             <i class="fas fa-info"></i> info
                                         </div>

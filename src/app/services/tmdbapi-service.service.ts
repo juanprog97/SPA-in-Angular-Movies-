@@ -21,6 +21,23 @@ export class TMDBApiServiceService {
     return this._http.get(url).toPromise();
   }
 
+  getFromTMBDMovieDetails(search:string,id:string){
+    let url = `${this.baseURL}/${search}/${id}?api_key=${this.key}&language=${this.language}`
+    return this._http.get(url).toPromise();
+  }
+
+  getFromTMBDCredits(id:string){
+    let url = `${this.baseURL}/movie/${id}/credits?api_key=${this.key}&language=${this.language}`
+    return this._http.get(url).toPromise();
+  }
+
+  getFromTMBDSimilar(id:string){
+    let url = `${this.baseURL}/movie/${id}/similar?api_key=${this.key}&language=${this.language}`
+    return this._http.get(url).toPromise();
+  }
+
+
+
   getPopularMovies(page):Promise<any>{
     return this.getFromTMBD('movie/popular',page);
   }
@@ -40,6 +57,22 @@ export class TMDBApiServiceService {
   searchMovie(name):Promise<any>{
     return this.getFromTMBDSearch('search/movie',name,1);
   }
+
+// detail of movie
+
+
+  getDetails(id):Promise<any>{
+    return this.getFromTMBDMovieDetails('movie',id);
+  }
+
+  getCredits(id):Promise<any>{
+    return this.getFromTMBDCredits(id);
+  }
+
+  getSimilars(id):Promise<any>{
+    return this.getFromTMBDSimilar(id);
+  }
+
 
 
 

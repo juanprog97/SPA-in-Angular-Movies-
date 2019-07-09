@@ -31,6 +31,7 @@ import { MzButtonModule } from 'ngx-materialize'
     DetailTVComponent
   ],
   imports: [
+
     FormsModule,
     BrowserModule,
     AppRoutingModule,
