@@ -8,8 +8,9 @@
                         <div class="col-md-6" id="titulo">
                             <div class="card-fluid">
                                 <div class="card-body">
+                                    
                                     <div class="row justify-content-center">
-                                        <h4>{{detail.original_title}}</h4>
+                                        <h4>{{detail.original_title}} ({{detail.release_date.slice(0,4)}})</h4>
                                     </div>
                                     <hr>
                                     <div class="row justify-content-center ">
@@ -27,6 +28,51 @@
                                             <pre >Rate: <b>{{detail.vote_average}}</b></pre>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                                <h3 class="lok" >Details</h3> 
+                                                <hr>
+                                        </div>
+                                            
+                                    </div>
+                                   
+                                    <div class="row">
+                                            <h5 class="lok" >Production Countries:</h5> 
+                                    </div>
+                                    
+                                    <div  class="row " id="flag" >
+                                        
+                                    </div>
+                                    <div class="row">
+                                            <h5 class="lok" >Status:</h5>
+                                                   
+                                    </div>
+
+                                    <div class="row">
+                                        <h6>{{detail.status}}.</h6>
+                                                   
+                                    </div>
+                                   
+                                    <div class="row">
+                                            <h5 class="lok" >Budget:</h5>            
+                                    </div>
+                                    <div class="row">
+                                        <h6>${{detail.budget.toLocaleString()}}</h6>             
+                                    </div> 
+                                    <div class="row">
+                                            <h5 class="lok" >Revenue:</h5>            
+                                    </div>
+                                    <div class="row">
+                                            <h6>${{detail.revenue.toLocaleString()}}</h6>             
+                                    </div> 
+                                    <div class="row">
+                                            <h5 class="lok" >Genres:</h5>            
+                                    </div>
+                                    <div class="row" id="gene">
+                                                    
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div> 
@@ -36,7 +82,6 @@
                                 </div>
                                 <div class="row">
                                     <p>{{detail.overview}}</p>
-        
                                 </div>
                         </div>
                     </div>
@@ -47,23 +92,37 @@
                         <h3>Cast</h3>
                         <hr>
                     </div>
-                    <div class="col-md-12">
-                        <div class="w3-card-4">
-                            <img src="./assets/images/poba.png" alt="Alps">
-                            <div class="w3-container w3-center">
-                              <p>The Italian / Austrian Alps</p>
-                            </div>
+                <div class="row">
+                    <div *ngFor="let item of credit.slice(0,12)" class="prob" [routerLink]="['/ActorDetails',item.id]">
+                        <div class="card cast " style="width: 160px;" >
+                                <img class="card-img-top img-fluid" [src]="this.imgURL+item.profile_path">
+                                <div class="card-body">
+                                    <h6 class="card-title">{{item.name}} / {{item.character}}</h6>                                    
+                                </div>
+            
                         </div>
                     </div>
+                    
                 </div>
-                <div class="row">
+                
+                   
+                        
+                           
+                <div class="row" style="padding-top:20px ">
                     <div class="col-md-12">
                             <h3>Similars Movies</h3>
                             <hr>
                     </div>
                     
-                    <div class="col-md-12">
-                            <h4>Peliculas</h4>
+                    <div class="row" style="padding-top:20px ">
+                            <div *ngFor="let item of similarMovies.slice(0,12)" class="prob" [routerLink]="['/MovieDetails',item.id]">
+                                <div class="card cast " style="width: 160px;" >
+                                        <img class="card-img-top img-fluid" [src]="this.imgURL+item.poster_path">
+                                        <div class="card-body">
+                                            <h6 class="card-title">{{item.title}}({{item.release_date.slice (0,4)}})</h6>                                          </div>
+                    
+                                </div>
+                            </div>
                     </div>
                 </div>  
             </div>

@@ -11,6 +11,7 @@
 }
 
 #ele{
+    margin-top: 30px;
     padding-left: 70px;
 }
 #up{
@@ -21,6 +22,32 @@
 }
 .br-units{
     justify-content: center
+}
+
+.lok{
+    padding-top: 20px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.card.cast{
+    margin: 10px;
+    
+}
+.prob{
+    box-shadow: px 0px 0px 0px;
+    -webkit-transition: box-shadow 0.6s ease-in;
+    transition: box-shadow 0.6s ease-in;
+}
+
+.card-body.det{
+    padding-left:60px
+
+}
+.prob:hover{
+    box-shadow: 0px 4px 8px 0px;
+    -webkit-transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 @media screen and (width: 768px) {
@@ -34,6 +61,7 @@
     .card-body.detail-movie{
         padding: 50px;
     }
+    
 }
 
 
@@ -52,6 +80,5 @@
     #ele{
         padding-left: 40px;
     }
-   
 
 }

@@ -19,6 +19,7 @@ import { BarRatingModule } from 'ngx-bar-rating'
 import { MzButtonModule } from 'ngx-materialize'
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,7 @@ import { MzButtonModule } from 'ngx-materialize'
     AppRoutingModule,
     MzButtonModule,
     HttpClientModule,
-    OwlModule,
+ 
     NgxPaginationModule,
     BarRatingModule,
     NgbModule,

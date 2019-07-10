@@ -21,6 +21,7 @@ export class MoviesComponent implements OnInit {
   constructor(private _TMDBApiService:TMDBApiServiceService) { }
 
   ngOnInit() {
+    
     this._TMDBApiService.getPopularMovies(1).then(data=>this.moviePopulars= data.results)
     this._TMDBApiService.getPopularMovies(2).then(data=>this.moviePopulars= this.moviePopulars.concat(data.results) )
     this._TMDBApiService.getPopularMovies(3).then(data=>this.moviePopulars= this.moviePopulars.concat(data.results))
