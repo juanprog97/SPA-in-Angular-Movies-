@@ -1,50 +1,49 @@
 
 <div class="row-fluide">
-    <div class="row mce-fixed-width" id="popularBox" style="background-color:white" >
-        <div class="col-xl-12" >
+    <div class="row" id="popularBox" style="background-color:white" >
+        <div class="col-md-12" >
             <h1 class="titles" >Most Populars</h1>
-                   <div class="contain">
-                        <ngb-carousel *ngIf="images"  >
-                                <ng-template ngbSlide>
-                                <a routerLink="/MovieDetails" routerLinkActive="active">
-                            
-                                    <img [src]="this.imgURL+this.movies[0].backdrop_path" [alt]="this.movies[0].name" class="img-carousel">
-                                    <div class="carousel-caption">
-                                    <h3 style=" text-shadow: 2px 2px grey;">Movie Of The Moment</h3>
-                                    <p style=" text-shadow: 2px 2px grey;" >{{movies[0].original_title}}</p>
-                                    </div>
-                                </a>
-                                </ng-template>
-                                <ng-template ngbSlide>
-                                <a routerLink="/Detailtv" routerLinkActive="active">
-                                        <img [src]="this.imgURL+this.tvs[0].backdrop_path" [alt]="this.tvs[0].name" class="img-carousel">
-                                        <div class="carousel-caption">
-                                        <h3  style=" text-shadow: 2px 2px grey;">TV'Show Of The Moment</h3>
-                                        <p >{{tvs[0].original_name}} </p>
-                                        </div>
-                                </a>
-                                </ng-template>
-                                <ng-template ngbSlide>
-                                <a routerLink="/ActorDetails" routerLinkActive="active">
-                                    <img [src]="this.imgURL+this.actors[0].profile_path" [alt]="this.actors[0].name" id="actoimg" class="img-carousel">
-                                    <div class="carousel-caption">
-                                    <h3  style=" text-shadow: 2px 2px grey;" >Actor Of The Moment</h3>
-                                    <p style=" text-shadow: 2px 2px grey;">{{actors[0].name}}</p>
-                                    </div>
-                                </a>
-                                </ng-template>
-                        </ngb-carousel>
-                   </div>
+            
+            <ngb-carousel *ngIf="images"  >
+                    <ng-template ngbSlide>
+                    <a [routerLink]="['/MovieDetails',this.movies[0].id]">
+                
+                        <img [src]="this.imgURL+this.movies[0].backdrop_path" [alt]="this.movies[0].name" class="img-carousel">
+                        <div class="carousel-caption">
+                        <h3 style=" text-shadow: 2px 2px grey;">Movie Of The Moment</h3>
+                        <p style=" text-shadow: 2px 2px grey;" >{{movies[0].original_title}}</p>
+                        </div>
+                    </a>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                    <a  [routerLink]="['/tvDetails',this.tvs[0].id]">
+                            <img [src]="this.imgURL+this.tvs[0].backdrop_path" [alt]="this.tvs[0].name" class="img-carousel">
+                            <div class="carousel-caption">
+                            <h3  style=" text-shadow: 2px 2px grey;">TV'Show Of The Moment</h3>
+                            <p >{{tvs[0].original_name}} </p>
+                            </div>
+                    </a>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                    <a [routerLink]="['/ActorDetails',this.actors[0].id]">
+                        <img [src]="this.imgURL+this.actors[0].profile_path" [alt]="this.actors[0].name" id="actoimg" class="img-carousel">
+                        <div class="carousel-caption">
+                        <h3  style=" text-shadow: 2px 2px grey;" >Actor Of The Moment</h3>
+                        <p style=" text-shadow: 2px 2px grey;">{{actors[0].name}}</p>
+                        </div>
+                    </a>
+                    </ng-template>
+            </ngb-carousel>
+        </div>
                     
-        </div> 
-    </div>
-    <div class="row-block mce-fixed-width" #movie >
-        <div class="col-sm-12" >
-            <div class="card-fluid"   >
+    </div> 
+    <div class="row block"  #movie >
+        <div class="col-md-12" id="lol" >
+            <div class="card main">
                 <div class="card-header" >
                     <h4 >Popular Movies.</h4>
                 </div>
-                <div class="card-body  ">
+                <div class="card-body">
                     <div class="row justify-content-center">
                             <div *ngFor="let item of movies | paginate : { itemsPerPage:12, currentPage: p1,id: 'mov'}">
                                 <div class="card card-movie " style="width: 300px; ">
@@ -101,9 +100,9 @@
         </div>
     </div>
 
-    <div class="row-block mce-fixed-width" #tv>
-        <div class="col-sm-12">
-            <div class="card-fluid" >
+    <div class="row block" #tv>
+        <div class="col-md-12">
+            <div class="card" >
                 <div class="card-header">
                     <h4>Populars TVShows.</h4>
                 </div>
@@ -135,7 +134,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="showInfo"  [routerLink]="['/Detailtv',item.id]" >
+                                    <div class="showInfo"  [routerLink]="['/tvDetails',item.id]" >
                                         <div class="text">
                                             <i class="fas fa-info"></i> info
                                         </div>
@@ -156,24 +155,24 @@
             </div>
         </div>    
     </div>
-    <div class="row-block mce-fixed-width" #actor >
-        <div class="col-sm-12">
-            <div class="card-fluid">
+    <div class="row block" #actor >
+        <div class="col-md-12">
+            <div class="card">
                 <div class="card-header">
                         <h4>Populars Actors.</h4> 
                 </div>
                
-                <div class="card-body ">
+                <div class="card-body">
                         <div class="row justify-content-center">
                             <div *ngFor="let item of actors | paginate: { itemsPerPage:12, currentPage: p3, id: 'act'}">
-                                <div class="card card-movie   " >
+                                <div class="card card-movie " >
                                     <div class="card-body go"  style="width: 200 ; height: 200">
                                         <div class="row-fluid justify-content-center">
                                                 <h5 class="card-title">{{item.name}}</h5> 
                                                 <hr>
                                         </div>
                                         <div class="row justify-content-center">
-                                            <img [src]="this.imgURL+item.profile_path" style="width: 200px; height: 240px; border-radius: 5px"   class="card-img-top" [alt]="item.title">
+                                            <img [src]="this.imgURL+item.profile_path" style="width: 200px; height: 240px; border-radius: 5px"   class="img-fluid" [alt]="item.title">
                                         </div>
 
                                         <div class="row">

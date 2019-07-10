@@ -38,7 +38,6 @@ export class MainPageComponent implements OnInit {
         console.log(this.actors)
       },4000);
 
-      this.images = [`${this.imgURL}${this.movies[0].backdrop_path}`, `${this.imgURL}${this.tvs[0].backdrop_path}`, `${this.imgURL}${this.tvs[0].profile_path}`]
      
   
     

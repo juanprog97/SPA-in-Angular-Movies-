@@ -5,11 +5,17 @@
 }
 
 .card-body.detail-movie{
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 80px;
+    padding-right: 70px;
     padding-top: 100px; 
 }
 
+#ele{
+    padding-left: 70px;
+}
+#up{
+    margin-left: 20px
+}
 #overview{
     margin-top: 70px; 
 }
@@ -25,6 +31,9 @@
         padding-left:20px;    
 
     }
+    .card-body.detail-movie{
+        padding: 50px;
+    }
 }
 
 
@@ -32,11 +41,16 @@
 
     .card-body.detail-movie{
         padding-left: 20px;
-        padding-right: 20px
+        padding-right: 20px;
+        padding-top: 50px;
     }
     #overview{
-        padding-left:40px;
-        padding-right: 40px;
+        margin-top: 0px;
+        padding-left:20px;
+        padding-right: 20px;
+    }
+    #ele{
+        padding-left: 40px;
     }
    
 

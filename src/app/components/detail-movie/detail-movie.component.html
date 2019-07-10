@@ -1,62 +1,73 @@
+
+
 <div class="row-fluide-movie ">
     <div class="card">
         <div class="card-body detail-movie">
             <div class="container">
-                    <div class="row">
+                    <div class="row" id="up">
                         <div class="col-md-6" id="titulo">
                             <div class="card-fluid">
                                 <div class="card-body">
                                     <div class="row justify-content-center">
-                                        <h4>Titulo De La Pelicula</h4>
+                                        <h4>{{detail.original_title}}</h4>
                                     </div>
                                     <hr>
-                                    <div class="row">
-                                            <img >
+                                    <div class="row justify-content-center ">
+                                            <div class= "col-md-12">
+                                                <img   class="img-fluid" [src]="this.imgURL+this.detail.poster_path" >
+                                            </div>
                                     </div>
                                     <div class="row justify-content-center">
                                         <div class="col-md-12" >
-                                            <bar-rating style="width: fixed" [readOnly]="'true'" [(rate)]="rate" [max]="10" [theme]="'stars'"></bar-rating>        
+                                            <bar-rating style="width: fixed" [readOnly]="'true'" [(rate)]="this.detail.vote_average" [max]="10" [theme]="'stars'"></bar-rating>        
                                         </div>
                                     </div>
                                     <div class="row mce-fixed-widt justify-content-center" style="text-align: center">
                                         <div class="col-md-12">
-                                            <pre >Rate: <b>{{6}}</b></pre>
+                                            <pre >Rate: <b>{{detail.vote_average}}</b></pre>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div> 
                         <div class="col-md-6" id="overview">
-                                <div class="row">
-                                        <h5>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h5>
+                                <div class="row justify-content-center" style="margin-bottom: 5px">
+                                        <h5>{{detail.tagline}}</h5>
                                 </div>
                                 <div class="row">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p>{{detail.overview}}</p>
         
                                 </div>
                         </div>
                     </div>
             </div>
-            
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>Elenco</h3>
-                    <hr>
-                </div>
-                <div class="col-md-12">
-                    <h4>Actores</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                        <h3>Pelicula Similares</h3>
+            <div class="container" id="ele">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Cast</h3>
                         <hr>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="w3-card-4">
+                            <img src="./assets/images/poba.png" alt="Alps">
+                            <div class="w3-container w3-center">
+                              <p>The Italian / Austrian Alps</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="col-md-12">
-                        <h4>Peliculas</h4>
-                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                            <h3>Similars Movies</h3>
+                            <hr>
+                    </div>
+                    
+                    <div class="col-md-12">
+                            <h4>Peliculas</h4>
+                    </div>
+                </div>  
             </div>
+           
 
         </div>
 

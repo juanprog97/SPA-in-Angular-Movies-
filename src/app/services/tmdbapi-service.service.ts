@@ -23,16 +23,19 @@ export class TMDBApiServiceService {
 
   getFromTMBDMovieDetails(search:string,id:string){
     let url = `${this.baseURL}/${search}/${id}?api_key=${this.key}&language=${this.language}`
+    console.log(url,'url1')
     return this._http.get(url).toPromise();
   }
 
   getFromTMBDCredits(id:string){
     let url = `${this.baseURL}/movie/${id}/credits?api_key=${this.key}&language=${this.language}`
+    console.log(url,'url2')
     return this._http.get(url).toPromise();
   }
 
   getFromTMBDSimilar(id:string){
     let url = `${this.baseURL}/movie/${id}/similar?api_key=${this.key}&language=${this.language}`
+    console.log(url,'url3')
     return this._http.get(url).toPromise();
   }
 
@@ -63,6 +66,7 @@ export class TMDBApiServiceService {
 
   getDetails(id):Promise<any>{
     return this.getFromTMBDMovieDetails('movie',id);
+
   }
 
   getCredits(id):Promise<any>{

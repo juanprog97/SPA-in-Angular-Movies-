@@ -1,7 +1,8 @@
 
-.row-fluide{
+.row.row-fluide{
     padding: 30px 30px;
     padding-top: 100px;
+   
     
 }
 
@@ -32,9 +33,7 @@
 
     
 }
-ng-template{
-    height: auto;
-}
+
 
 .titles{
     text-align: left;
@@ -43,9 +42,9 @@ ng-template{
     margin-bottom: 20px;
 }
 
-.row-block{
+.row.block{
     padding: 40px;
-    margin-top: 5px;
+    margin-top: 20px;
     border-top: 1.5px solid rgb(128,128,128,0.7);
 
 }
@@ -55,9 +54,25 @@ ng-template{
     margin-right: 20px;
     margin-bottom: 20px;
     max-height: 800px;
-    
-    
+}
 
+
+
+@media screen and (max-width: 432px) {
+
+    .row.block{
+        padding-top: 20px;
+        padding-right: 0px;
+        padding-left: initial;
+        
+
+       
+    }
+    .row-fluide{
+        padding-left:10px;
+        padding-right: 10px;
+     
+    }
 }
 
 
