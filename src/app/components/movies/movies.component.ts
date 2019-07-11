@@ -44,7 +44,6 @@ export class MoviesComponent implements OnInit {
       this.spinner.hide();
     }, 2000);
     setTimeout(()=>{
-      console.log(this.moviePopulars,this.movieTop,this.moviePlay,this.movieCooming)
     },4000);
   }
   actual(){
@@ -80,10 +79,13 @@ export class MoviesComponent implements OnInit {
       this.spinner.hide();
     }, 2000);
     setTimeout(()=>{
-      let b = document.getElementById('listMov')
-      let c = document.createElement('h3')
-      c.innerHTML = "Not Found Movie"
-      b.appendChild(c)
+      if(this.movieSearch.length ===0){
+        let b = document.getElementById('listMov')
+        let c = document.createElement('h3')
+        c.innerHTML = "Not Found Movie"
+        b.appendChild(c)
+      }
+      
     },2000);
 
   }

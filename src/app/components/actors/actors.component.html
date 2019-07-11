@@ -1,1 +1,57 @@
-<p>actors works!</p>
+<div class="row-fluide-movie ">
+    <div class="card" #modai>
+        <div class="card-header">
+            <h2>Actors</h2>
+        </div>
+        <div class="card-body card-body-movie ">
+                <div class="row " style="margin-bottom:25px">
+                    <div class="col-md-6" style="text-align: center">
+                        <h3 id="option">Popular Actors</h3>
+                    </div>
+                    <div class="col-md-6 align-content-lg-end ">
+                            <form class="form-inline my-2 my-lg-0">
+                                    <input   class="form-control mr-sm-2" id="query" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-warning my-2 my-sm-0" (click)="selected(5)" type="submit"><i class="fas fa-search"></i></button>
+                                    <button class="btn btn-outline-warning ml-1 ml-sm-2" (click)="selected(1)" type="submit"><i class="fas fa-fire-alt"></i></button>
+
+                            </form>             
+                    </div>        
+                </div>
+                <hr>
+                <ngx-spinner></ngx-spinner>
+                <div class="row  mce-fixed-width justify-content-center" id="listAct" >
+                    <div  [routerLink]="['/ActorDetails',item.id]" *ngFor="let item of actual() | paginate: { itemsPerPage:8, currentPage: p, id: 'modi'}"> 
+                        <div class="card card-actor prob" style="width:230px">
+                            <div class="card-body" style="padding-left:30px ; padding-right: 30px">
+                                <div class="row ">
+                                    <div class="col-md-12" >
+                                        <div class="row " style="text-align: center">
+                                                <div class="col-xl-12">
+                                                    <h5 class="card-title">{{item.name}}</h5>
+                                                    <hr>
+                                                </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <img onError="this.src='./assets/images/image-not-available.jpg'"  [src]= "this.imgURL+item.profile_path"  style="height: 270px" class="card-img-top img-fluid">
+                                        </div>
+                                        <div class="row" style="padding-top: 10px">
+                                            <p style="font-weight: 500; ">{{item.known_for.map(myFunction)}}</p>
+                                        </div>
+                                                          
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center" id="pagination" >             
+                    <pagination-controls (pageChange)="p = $event" id="modi" ></pagination-controls>
+                    <a (click)="scroll(modai)"  style="padding-left:10px" class="btn btn-warning"><i class="fas fa-chevron-up"></i></a>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

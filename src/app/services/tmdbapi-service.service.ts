@@ -103,7 +103,7 @@ export class TMDBApiServiceService {
 
   //DetailTv
   getDetailsTv(id):Promise<any>{
-    return  this.getFromTMBDCredits(id,'tv')
+    return  this.getFromTMBDetails(id,'tv')
   }
   getCreditsTv(id):Promise<any>{
     return this.getFromTMBDCredits(id,'tv');
@@ -117,19 +117,28 @@ export class TMDBApiServiceService {
   }
 
 
-
+  //Actor Detatil
+  getDetailsActor(id):Promise<any>{
+    return  this.getFromTMBDetails(id,'person')
+  }
   
-  
-
-
-
-
-
-
-
-
-
+  searchActor(name):Promise<any>{
+    return this.getFromTMBDSearch('search/person',name,1);
+  }
   getPopularActor(page):Promise<any>{
     return this.getFromTMBD('person/popular',page)
   }
+
+  
+  
+
+
+
+
+
+
+
+
+
+ 
 }
