@@ -9,19 +9,26 @@ import { TVshowComponent } from './components/tvshow/tvshow.component';
 import { DetailTVComponent } from './components/detail-tv/detail-tv.component';
 
 const routes: Routes = [
+  
     {path: 'Actors', component: ActorsComponent},
     {path: 'Movies', component: MoviesComponent},
     {path: 'ActorDetails/:id', component: DetailActorComponent},
-    {path: 'MovieDetails/:id', component: DetailMovieComponent},
+    {path: 'MovieDetails/:id', component: DetailMovieComponent,runGuardsAndResolvers: 'always'},
     {path: 'tvDetails/:id', component: DetailTVComponent },
     {path: 'TVshows', component: TVshowComponent},
     {path: '**', component: MainPageComponent}
+    
+    
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'enabled'
+    scrollPositionRestoration: 'enabled',
+    onSameUrlNavigation: 'reload',
+    
 })],
   exports: [RouterModule]
+  
 })
 export class AppRoutingModule { }

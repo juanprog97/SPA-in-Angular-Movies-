@@ -17,7 +17,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { DetailTVComponent } from './components/detail-tv/detail-tv.component';
 import { BarRatingModule } from 'ngx-bar-rating'
 import { MzButtonModule } from 'ngx-materialize'
-
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -38,7 +38,7 @@ import { MzButtonModule } from 'ngx-materialize'
     AppRoutingModule,
     MzButtonModule,
     HttpClientModule,
- 
+    NgxSpinnerModule,
     NgxPaginationModule,
     BarRatingModule,
     NgbModule,

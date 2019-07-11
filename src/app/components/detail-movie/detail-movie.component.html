@@ -1,6 +1,7 @@
 
 
 <div class="row-fluide-movie ">
+    <ngx-spinner></ngx-spinner> 
     <div class="card">
         <div class="card-body detail-movie">
             <div class="container">
@@ -14,9 +15,12 @@
                                     </div>
                                     <hr>
                                     <div class="row justify-content-center ">
+                                       
                                             <div class= "col-md-12">
-                                                <img   class="img-fluid" [src]="this.imgURL+this.detail.poster_path" >
+                                                    <img   class="img-fluid" [src]="this.imgURL+this.detail.poster_path" >
                                             </div>
+                                         
+                                        
                                     </div>
                                     <div class="row justify-content-center">
                                         <div class="col-md-12" >
@@ -104,10 +108,7 @@
                     </div>
                     
                 </div>
-                
-                   
-                        
-                           
+            
                 <div class="row" style="padding-top:20px ">
                     <div class="col-md-12">
                             <h3>Similars Movies</h3>
@@ -119,7 +120,8 @@
                                 <div class="card cast " style="width: 160px;" >
                                         <img class="card-img-top img-fluid" [src]="this.imgURL+item.poster_path">
                                         <div class="card-body">
-                                            <h6 class="card-title">{{item.title}}({{item.release_date.slice (0,4)}})</h6>                                          </div>
+                                            <h6 class="card-title">{{item.title}}({{item.release_date.slice (0,4)}})</h6>
+                                        </div>
                     
                                 </div>
                             </div>
@@ -131,7 +133,7 @@
         </div>
 
     </div>
-
+    
 
 
 </div>
