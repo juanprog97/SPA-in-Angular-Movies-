@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { TMDBApiServiceService } from '../../services/tmdbapi-service.service';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
-
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-main-page',
@@ -19,8 +19,12 @@ export class MainPageComponent implements OnInit {
 
   images = [];
 
-  constructor(private _TMDBApiService:TMDBApiServiceService,config: NgbRatingConfig) { config.readonly = true;}
+  constructor(private spinner: NgxSpinnerService,private _TMDBApiService:TMDBApiServiceService,config: NgbRatingConfig) { config.readonly = true;}
   ngOnInit() {
+      this.spinner.show();
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 2000);
       this._TMDBApiService.getPopularMovies(1).then(data=>this.movies= data.results)
       this._TMDBApiService.getPopularMovies(2).then(data=>this.movies= this.movies.concat(data.results) )
       this._TMDBApiService.getPopularMovies(3).then(data=>this.movies= this.movies.concat(data.results))

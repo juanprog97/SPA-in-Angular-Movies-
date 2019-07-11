@@ -1,1 +1,85 @@
-<p>tvshow works!</p>
+<div class="row-fluide-movie ">
+    <div class="card" #modai>
+        <div class="card-header">
+            <h2>Movies</h2>
+        </div>
+        <div class="card-body card-body-movie ">
+                <div class="row " style="margin-bottom:25px">
+                    <div class="col-md-6" style="text-align: center">
+                        <h3 id="option">Popular TV Shows</h3>
+                    </div>
+                    <div class="col-md-6 align-content-lg-end ">
+                            <form class="form-inline my-2 my-lg-0">
+                                    <input   class="form-control mr-sm-2" id="query" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-warning my-2 my-sm-0" (click)="selected(5)" type="submit"><i class="fas fa-search"></i></button>
+                                    <div ngbDropdown class="d-inline-block">
+                                            <button class="btn btn-outline-warning ml-1 ml-sm-2" id="dropdownBasic1"  ngbDropdownToggle><i class="fas fa-filter"></i></button>
+                                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                              <button  ngbDropdownItem (click)="selected(1)">Popular TV Shows..</button>
+                                              <button ngbDropdownItem (click)="selected(2)">Airing Today..</button>
+                                              <button ngbDropdownItem (click)="selected(3)">Top Rated..</button>
+                                              <button ngbDropdownItem (click)="selected(4)">On The Air..</button>
+                                            </div>
+                                    </div>
+                            </form>             
+                    </div>        
+                </div>
+                <hr>
+                <ngx-spinner></ngx-spinner>
+                <div class="row  mce-fixed-width justify-content-center" id="listTv" >
+                    
+                    <div *ngFor="let item of actual() | paginate: { itemsPerPage:8, currentPage: p, id: 'modi'}"> 
+                        <div class="card card-movie justify-content-center">
+                            <div class="card-body" style="padding-left:30px ; padding-right: 30px">
+                                <div class="row ">
+                                    <div class="col-md-5" >
+                                        <div class="row ">
+                                                <div class="col-xl-12">
+                                                    <h5 class="card-title">{{item.title}}</h5>
+                                                    <hr>
+                                                </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <img  [src]= "this.imgURL+item.poster_path"  style="height: 270px" class="img-responsive"
+                                            onError="this.src='./assets/images/image-not-available.jpg'">
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-12 text-center">
+                                                    <bar-rating  style="width: 290px; "  [readOnly]="'true'" [(rate)]="item.vote_average" [max]="10" [theme]="'stars'"></bar-rating>
+                                                    <pre >Rate: <b>{{item.vote_average}}</b></pre>   
+                                            </div>         
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-text" >
+                                        <div class="row justify-content-center">
+                                            <div class="cut-text-movie ">
+                                                    {{recortar(item.overview)}} 
+                                            </div> 
+                                        </div>
+                                        <div class="row row-moviet">
+                                            <button class="btn btn-warning" [routerLink]="['/tvDetails',item.id]"  type="submit"><i class="fas fa-info"></i> info</button> 
+
+                                        </div>                     
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center" id="pagination" >
+                        <div class="col-sm-5" >
+                                   
+                            <pagination-controls (pageChange)="p = $event" id="modi" ></pagination-controls>
+                        </div>
+                        <div class="col-sm-1">
+                            <a (click)="scroll(modai)" class="btn btn-warning"><i class="fas fa-chevron-up"></i></a>
+                        </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

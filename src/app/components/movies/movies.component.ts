@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TMDBApiServiceService } from '../../services/tmdbapi-service.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-movies',
@@ -18,7 +19,7 @@ export class MoviesComponent implements OnInit {
   searching = 0
   public imgURL = 'https://image.tmdb.org/t/p/w500'
 
-  constructor(private _TMDBApiService:TMDBApiServiceService) { }
+  constructor(private spinner: NgxSpinnerService,private _TMDBApiService:TMDBApiServiceService) { }
 
   ngOnInit() {
     
@@ -38,6 +39,10 @@ export class MoviesComponent implements OnInit {
     this._TMDBApiService.getNowPlayingMovies(2).then(data=>this.moviePlay= this.moviePlay.concat(data.results))
     this._TMDBApiService.getNowPlayingMovies(3).then(data=>this.moviePlay= this.moviePlay.concat(data.results))
       
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
     setTimeout(()=>{
       console.log(this.moviePopulars,this.movieTop,this.moviePlay,this.movieCooming)
     },4000);
@@ -70,8 +75,15 @@ export class MoviesComponent implements OnInit {
 
   search(name){
     this._TMDBApiService.searchMovie(name).then(data=>this.movieSearch = data.results)
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
     setTimeout(()=>{
-    
+      let b = document.getElementById('listMov')
+      let c = document.createElement('h3')
+      c.innerHTML = "Not Found Movie"
+      b.appendChild(c)
     },2000);
 
   }
@@ -107,6 +119,7 @@ export class MoviesComponent implements OnInit {
         break;
       case 5:
         a.innerHTML = "Movie Search"
+        this.searching =0
         this.categoryMovie = 5
         break;
 

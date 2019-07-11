@@ -25,6 +25,7 @@
                     </div>        
                 </div>
                 <hr>
+                <ngx-spinner></ngx-spinner>
                 <div class="row  mce-fixed-width justify-content-center" id="listMov" >
                     <div *ngFor="let item of actual() | paginate: { itemsPerPage:8, currentPage: p, id: 'modi'}"> 
                         <div class="card card-movie justify-content-center">
@@ -38,7 +39,7 @@
                                                 </div>
                                         </div>
                                         <div class="row justify-content-center">
-                                            <img  [src]= "this.imgURL+item.poster_path"  style="height: 270px" class="img-responsive">
+                                            <img onError="this.src='./assets/images/image-not-available.jpg'"  [src]= "this.imgURL+item.poster_path"  style="height: 270px" class="img-responsive">
                                         </div>
                                         <div class="row justify-content-center">
                                             <div class="col-md-12 text-center">

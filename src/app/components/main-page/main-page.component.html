@@ -26,7 +26,7 @@
                     </ng-template>
                     <ng-template ngbSlide>
                     <a [routerLink]="['/ActorDetails',this.actors[0].id]">
-                        <img [src]="this.imgURL+this.actors[0].profile_path" [alt]="this.actors[0].name" id="actoimg" class="img-carousel">
+                        <img  onError="this.src='./assets/images/image-not-available.jpg'" [src]="this.imgURL+this.actors[0].profile_path" [alt]="this.actors[0].name" id="actoimg" class="img-carousel">
                         <div class="carousel-caption">
                         <h3  style=" text-shadow: 2px 2px grey;" >Actor Of The Moment</h3>
                         <p style=" text-shadow: 2px 2px grey;">{{actors[0].name}}</p>
@@ -37,6 +37,7 @@
         </div>
                     
     </div> 
+    <ngx-spinner></ngx-spinner>
     <div class="row block"  #movie >
         <div class="col-md-12" id="lol" >
             <div class="card main">
@@ -57,7 +58,7 @@
                                         </div>
                                         
                                         <div class="row">
-                                            <img [src]="this.imgURL+item.backdrop_path"  style=" height: 200px" class="card-img-top" [alt]="item.title">
+                                            <img onError="this.src='./assets/images/image-not-available.jpg'" [src]="this.imgURL+item.backdrop_path"  style=" height: 200px" class="card-img-top" [alt]="item.title">
                                         
                                         </div>
 
@@ -119,7 +120,7 @@
                                         </div>
                                         
                                         <div class="row">
-                                            <img [src]="this.imgURL+item.backdrop_path" style=" height: 200px"  class="card-img-top" [alt]="item.title">
+                                            <img onError="this.src='./assets/images/image-not-available.jpg'" [src]="this.imgURL+item.backdrop_path" style=" height: 200px"  class="card-img-top" [alt]="item.title">
                                         </div>
 
                                         <div class="row justify-content-center">

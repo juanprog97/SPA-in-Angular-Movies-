@@ -21,20 +21,24 @@ export class TMDBApiServiceService {
     return this._http.get(url).toPromise();
   }
 
-  getFromTMBDMovieDetails(search:string,id:string){
+  getFromTMBDetails(search:string,id:string){
     let url = `${this.baseURL}/${search}/${id}?api_key=${this.key}&language=${this.language}`
     console.log(url,'url1')
     return this._http.get(url).toPromise();
   }
 
-  getFromTMBDCredits(id:string){
-    let url = `${this.baseURL}/movie/${id}/credits?api_key=${this.key}&language=${this.language}`
+  getFromTMBDCredits(id:string,type:string){
+    let url = `${this.baseURL}/${type}/${id}/credits?api_key=${this.key}&language=${this.language}`
     console.log(url,'url2')
     return this._http.get(url).toPromise();
   }
 
-  getFromTMBDSimilar(id:string){
-    let url = `${this.baseURL}/movie/${id}/similar?api_key=${this.key}&language=${this.language}`
+  
+
+  
+
+  getFromTMBDSimilar(id:string,type:string){
+    let url = `${this.baseURL}/${type}/${id}/similar?api_key=${this.key}&language=${this.language}`
     console.log(url,'url3')
     return this._http.get(url).toPromise();
   }
@@ -65,25 +69,65 @@ export class TMDBApiServiceService {
 
 
   getDetails(id):Promise<any>{
-    return this.getFromTMBDMovieDetails('movie',id);
+    return this.getFromTMBDetails('movie',id);
 
   }
 
+
   getCredits(id):Promise<any>{
-    return this.getFromTMBDCredits(id);
+    return this.getFromTMBDCredits(id,'movie');
   }
 
   getSimilars(id):Promise<any>{
-    return this.getFromTMBDSimilar(id);
+    return this.getFromTMBDSimilar(id,'movie');
   }
 
-
-
+  //detail of TvShow
 
 
   getPopularTv(page):Promise<any>{
     return this.getFromTMBD('tv/popular',page)
   }
+
+  getTopRatedTv(page):Promise<any>{
+    return this.getFromTMBD('tv/top_rated',page)
+  }
+
+  getAiringToday(page):Promise<any>{
+    return this.getFromTMBD('tv/airing_today',page)
+  }
+
+  getOnTheAirTv(page):Promise<any>{
+    return this.getFromTMBD('tv/on_the_air',page)
+  }
+
+  //DetailTv
+  getDetailsTv(id):Promise<any>{
+    return  this.getFromTMBDCredits(id,'tv')
+  }
+  getCreditsTv(id):Promise<any>{
+    return this.getFromTMBDCredits(id,'tv');
+  }
+  getSimilarsTv(id):Promise<any>{
+    return this.getFromTMBDSimilar(id,'tv');
+  }
+
+  searchTv(name):Promise<any>{
+    return this.getFromTMBDSearch('search/tv',name,1);
+  }
+
+
+
+  
+  
+
+
+
+
+
+
+
+
 
   getPopularActor(page):Promise<any>{
     return this.getFromTMBD('person/popular',page)
