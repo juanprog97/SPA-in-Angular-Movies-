@@ -32,9 +32,6 @@ export class DetailMovieComponent implements OnInit {
 
   }
 
-  newId($event){
-
-  }
 
   loadData(){
       console.log("epa")

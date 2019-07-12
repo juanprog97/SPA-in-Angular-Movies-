@@ -103,7 +103,7 @@ export class TMDBApiServiceService {
 
   //DetailTv
   getDetailsTv(id):Promise<any>{
-    return  this.getFromTMBDetails(id,'tv')
+    return  this.getFromTMBDetails('tv',id)
   }
   getCreditsTv(id):Promise<any>{
     return this.getFromTMBDCredits(id,'tv');
