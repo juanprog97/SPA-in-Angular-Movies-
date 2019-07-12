@@ -17,7 +17,7 @@
                                     <div class="row justify-content-center ">
                                        
                                             <div class= "col-md-12">
-                                                    <img   class="img-fluid" [src]="this.imgURL+this.detail.poster_path" >
+                                                    <img onError="this.src='./assets/images/image-not-available.jpg'" class="img-fluid" [src]="this.imgURL+this.detail.poster_path" >
                                             </div>
                                          
                                         
@@ -78,26 +78,19 @@
                                             <h5 class="lok" >Last Episode:</h5>            
                                     </div>
                                     <div class="row">
-                                            <div class="card mb-3" style="max-width: 540px;">
-                                                    <div class="row no-gutters">
-                                                      <div class="col-md-4">
-                                                        <img [src]="this.imgURL+this.detail.backdrop_path" class="img-fluid" alt="...">
-                                                      </div>
-                                                      <div class="col-md-8">
-                                                        <div class="card-body">
-                                                          <h5 class="card-title">{{detail.last_episode_to_air.name}}</h5>
-                                                          <h6 class="card-title">Seasion {{detail.last_episode_to_air.season_number}}, Episode {{detail.last_episode_to_air.episode_number}} </h6>
-                                                          
-                                                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                          <p class="card-text"><small class="text-muted">Last updated {{detail.last_air_date}}</small></p>
-                                                        </div>
-                                                      </div>
-                                                    </div>
+                                        <div class="card mb-2" style="max-width: 540px;">
+                                            <div class="row no-gutters">
+                                                <div class="col-md-12">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{detail.last_episode_to_air.name}}</h5>
+                                                    <h6 class="card-title">Seasion {{detail.last_episode_to_air.season_number}}, Episode {{detail.last_episode_to_air.episode_number}} </h6>
+                                                    <p class="card-text">{{detail.last_episode_to_air.overview}}</p>
+                                                    <p class="card-text"><small class="text-muted">Last updated {{detail.last_air_date}}</small></p>
+                                                </div>
+                                                </div>
                                             </div>
+                                        </div>
                                     </div>
-                                   
-
-
                                 </div>
                             </div>
                         </div> 
@@ -118,7 +111,7 @@
                 <div class="row">
                     <div *ngFor="let item of credit.slice(0,12)" class="prob" [routerLink]="['/ActorDetails',item.id]">
                         <div class="card cast " style="width: 160px;" >
-                                <img class="card-img-top img-fluid" [src]="this.imgURL+item.profile_path">
+                                <img onError="this.src='./assets/images/image-not-available.jpg'" class="card-img-top img-fluid" [src]="this.imgURL+item.profile_path">
                                 <div class="card-body">
                                     <h6 class="card-title">{{item.name}}  </h6>
                                     <div class="row justify-content-center">
@@ -141,22 +134,15 @@
                     <div class="row" style="padding-top:20px ">
                             <div *ngFor="let item of similarTv.slice(0,12)" class="prob" [routerLink]="['/tvDetails',item.id]">
                                 <div class="card cast " style="width: 160px;" >
-                                        <img class="card-img-top img-fluid" [src]="this.imgURL+item.poster_path">
+                                        <img onError="this.src='./assets/images/image-not-available.jpg'" class="card-img-top img-fluid" [src]="this.imgURL+item.poster_path">
                                         <div class="card-body">
                                             <h6 class="card-title">{{item.name}}</h6>
                                         </div>
-                    
                                 </div>
                             </div>
                     </div>
                 </div>  
             </div>
-           
-
         </div>
-
     </div>
-    
-
-
 </div>

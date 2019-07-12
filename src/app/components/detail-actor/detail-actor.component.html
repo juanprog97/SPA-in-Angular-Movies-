@@ -1,1 +1,96 @@
-<p>detail-actor works!</p>
+
+
+<div class="row-fluide-movie ">
+        <ngx-spinner></ngx-spinner> 
+        <div class="card">
+            <div class="card-body detail-movie">
+                <div class="container">
+                        <div class="row" id="up">
+                            <div class="col-md-6" id="titulo">
+                                <div class="card-fluid">
+                                    <div class="card-body">
+                                        
+                                        <div class="row justify-content-center">
+                                            <h4>{{detail.name}}</h4>
+                                        </div>
+                                        <hr>
+                                        <div class="row justify-content-center ">
+                                            <div class= "col-md-12">
+                                                    <img onError="this.src='./assets/images/image-not-available.jpg'"  class="img-fluid" [src]="this.imgURL+this.detail.profile_path" >
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                    <h3 class="lok" >Personal Info</h3> 
+                                                    <hr>
+                                            </div>     
+                                        </div>
+                                        <div class="row">
+                                                <h5 class="lok" >Know For:</h5> 
+                                        </div>
+                                        <div class="row">
+                                                <h6>{{detail.known_for_department}}.</h6>
+                                        </div>
+
+                                        <div class="row">
+                                            <h5 class="lok" >Gender:</h5>            
+                                        </div>
+                                        <div class="row" id="gener">
+                                            <h6>{{function(detail.gender)}}.</h6>                  
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="lok" >Birthday</h5>            
+                                        </div>
+                                        <div class="row">
+                                            <h6>{{detail.birthday}}.</h6>             
+                                        </div> 
+                                        <div class="row">
+                                            <h5 class="lok" >Place of Birth</h5>            
+                                        </div>
+                                        <div class="row">
+                                            <h6>{{detail.place_of_birth}}.</h6>             
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-md-6" id="overview">
+                                    <div class="row">
+                                        <p>{{detail.biography}}</p>
+                                    </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="container" id="ele">
+                    <div class="row">
+                        <div class="col-md-12" #cast>
+                            <h3>Know For</h3>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div *ngFor="let item of credit | paginate : { itemsPerPage:12, currentPage: p,id: 'mov'}" class="prob" [routerLink]="question(item.media_type) ? ['/tvDetails', item.id] : ['/MovieDetails',item.id]">
+                            <div class="card cast " style="width: 160px;" >
+                                    <img onError="this.src='./assets/images/image-not-available.jpg'" class="card-img-top img-fluid" [src]="this.imgURL+item.poster_path">
+                                    <div class="card-body">
+                                        <h6 class="card-title">{{item.name}}</h6> 
+                                        <div class="row justify-content-center">
+                                                <p style="font-weight: 500">{{item.character}}</p>
+                                        </div>                                   
+                                    </div>            
+                            </div>
+                            <div class="row justify-content-center" >
+                                <div class="col-sm-5" >
+                                
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" style="padding-top:35px">
+                            <pagination-controls (pageChange)="p = $event" id="mov"></pagination-controls>
+                            <a (click)="scroll(cast)"  class="btn btn-warning"><i class="fas fa-chevron-up"></i></a>
+                    </div>   
+                </div>
+        </div>
+    </div>
+    

@@ -17,7 +17,7 @@
                                     <div class="row justify-content-center ">
                                        
                                             <div class= "col-md-12">
-                                                    <img   class="img-fluid" [src]="this.imgURL+this.detail.poster_path" >
+                                                    <img onError="this.src='./assets/images/image-not-available.jpg'"  class="img-fluid" [src]="this.imgURL+this.detail.poster_path" >
                                             </div>
                                          
                                         
@@ -99,7 +99,7 @@
                 <div class="row">
                     <div *ngFor="let item of credit.slice(0,12)" class="prob" [routerLink]="['/ActorDetails',item.id]">
                         <div class="card cast " style="width: 160px;" >
-                                <img class="card-img-top img-fluid" [src]="this.imgURL+item.profile_path">
+                                <img onError="this.src='./assets/images/image-not-available.jpg'" class="card-img-top img-fluid" [src]="this.imgURL+item.profile_path">
                                 <div class="card-body">
                                     <h6 class="card-title">{{item.name}}</h6> 
                                     <div class="row justify-content-center">
@@ -120,7 +120,7 @@
                     <div class="row" style="padding-top:20px ">
                             <div *ngFor="let item of similarMovies.slice(0,12)" class="prob" [routerLink]="['/MovieDetails',item.id]">
                                 <div class="card cast " style="width: 160px;" >
-                                        <img class="card-img-top img-fluid" [src]="this.imgURL+item.poster_path">
+                                        <img onError="this.src='./assets/images/image-not-available.jpg'" class="card-img-top img-fluid" [src]="this.imgURL+item.poster_path">
                                         <div class="card-body">
                                             <h6 class="card-title">{{item.title}}({{item.release_date.slice (0,4)}})</h6>
                                         </div>

@@ -27,9 +27,9 @@ export class TMDBApiServiceService {
     return this._http.get(url).toPromise();
   }
 
+ 
   getFromTMBDCredits(id:string,type:string){
     let url = `${this.baseURL}/${type}/${id}/credits?api_key=${this.key}&language=${this.language}`
-    console.log(url,'url2')
     return this._http.get(url).toPromise();
   }
 
@@ -119,9 +119,15 @@ export class TMDBApiServiceService {
 
   //Actor Detatil
   getDetailsActor(id):Promise<any>{
-    return  this.getFromTMBDetails(id,'person')
+    return  this.getFromTMBDetails('person',id)
   }
   
+  getFromTMBDCombinedCredits(id:string):Promise<any>{
+    let url = `${this.baseURL}/person/${id}/combined_credits?api_key=${this.key}&language=${this.language}`
+    return this._http.get(url).toPromise();
+  }
+
+
   searchActor(name):Promise<any>{
     return this.getFromTMBDSearch('search/person',name,1);
   }
