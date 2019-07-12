@@ -96,7 +96,7 @@ export class ActorsComponent implements OnInit {
         this.categoryActor = 1
         break;
       case 5:
-        a.innerHTML = "Movie Search"
+        a.innerHTML = "Actor Search"
         this.searching =0
         this.categoryActor = 5
         break;
